@@ -14,6 +14,10 @@ namespace SignalMVC.Hubs
     {
         private static Timer _timer = new Timer();
 
+        private SongQueue songQueue = new SongQueue();
+
+
+
         /// <summary>
         /// Starts the countdown timer for the video to finish.
         /// Used by the play.js file which handles the client-server communication functions
