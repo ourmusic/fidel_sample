@@ -5,7 +5,7 @@ using System.Web;
 
 namespace SignalMVC.Models
 {
-    public class SongQueue
+    public class VideoQueue
     {
 
     }

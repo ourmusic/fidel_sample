@@ -14,7 +14,7 @@ namespace SignalMVC.Hubs
     {
         private static Timer _timer = new Timer();
 
-        private SongQueue songQueue = new SongQueue();
+        private VideoQueue videoQueue = new VideoQueue();
 
 
 
