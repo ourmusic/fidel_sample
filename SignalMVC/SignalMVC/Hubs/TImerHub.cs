@@ -16,8 +16,6 @@ namespace SignalMVC.Hubs
 
         private VideoQueue videoQueue = new VideoQueue();
 
-
-
         /// <summary>
         /// Starts the countdown timer for the video to finish.
         /// Used by the play.js file which handles the client-server communication functions
@@ -25,7 +23,7 @@ namespace SignalMVC.Hubs
         /// <param name="seconds">Video duration</param>
         public void StartCountDown(int seconds)
         {
-            _timer.Interval = ((seconds + 2) * 1000);
+            _timer = new Timer((seconds + 2) * 1000);
             _timer.Elapsed += new ElapsedEventHandler(_timer_Done);
             _timer.Start();
         }
@@ -51,7 +49,8 @@ namespace SignalMVC.Hubs
         /// <returns>The next video ID in the queue</returns>
         public String GetNextVideo()
         {
-            return "Xpe-JoGyPsY";
+            Video toPlay = videoQueue.RemoveFirstVideo();
+            return toPlay.GetUrl();
         }
 
     }

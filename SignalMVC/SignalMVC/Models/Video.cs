@@ -14,8 +14,10 @@ namespace SignalMVC.Models
         private string album;        //album of the video
         private int votes;           //votes to determine play order
 
-        //constructor for video class, initially all unknown
-        public void Video()
+        /// <summary>
+        /// constructor for video class, initially all unknown
+        /// </summary>
+        public Video()
         {
             this.title = "";
             this.url = "";
@@ -24,56 +26,99 @@ namespace SignalMVC.Models
             this.votes = 0;
         }
 
-        /*Title Helper Functions*/
-        public string getTitle()
+        /// <summary>
+        /// Title Helper Functions
+        /// </summary>
+        /// <returns></returns>
+        public string GetTitle()
         {
             return this.title;
         }
-        public void setTitle(string title)
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="title"></param>
+        public void SetTitle(string title)
         {
             this.title = title;
         }
 
-        /*Artist Helper Functions*/
-        public string getArtist()
+        /// <summary>
+        /// Artist Helper Functions
+        /// </summary>
+        /// <returns></returns>
+        public string GetArtist()
         {
             return this.artist;
         }
-        public void setArtist(string artist)
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="artist"></param>
+        public void SetArtist(string artist)
         {
             this.artist = artist;
         }
 
-        /*Album Helper Functions*/
-        public string getAlbum()
+        /// <summary>
+        /// Album Helper Functions
+        /// </summary>
+        /// <returns></returns>
+        public string GetAlbum()
         {
             return this.album;
         }
-        public void setAlbum(string album)
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="album"></param>
+        public void SetAlbum(string album)
         {
             this.album = album;
         }
 
-        /*URL Helper Functions*/
-        public string getUrl()
+        /// <summary>
+        /// URL Helper Functions
+        /// </summary>
+        /// <returns></returns>
+        public string GetUrl()
         {
             return this.url;
         }
-        public void setUrl(string url)
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="url"></param>
+        public void SetUrl(string url)
         {
             this.url = url;
         }
 
-        /*Votes Helper Functions*/
-        public int getVotes()
+        /// <summary>
+        /// Votes Helper Functions
+        /// </summary>
+        /// <returns></returns>
+        public int GetVotes()
         {
             return this.votes;
         }
-        public void upvote()
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Upvote()
         {
             this.votes++;
         }
-        public void downvote()
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Downvote()
         {
             this.votes--;
         }

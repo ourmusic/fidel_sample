@@ -136,7 +136,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\VideoTimer.cs" />
+    <Compile Include="Models\Video.cs" />
+    <Compile Include="Models\VideoQueue.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Hubs\TImerHub.cs" />

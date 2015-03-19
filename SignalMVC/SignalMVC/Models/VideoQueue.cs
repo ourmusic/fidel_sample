@@ -9,49 +9,78 @@ namespace SignalMVC.Models
     {
         private LinkedList<Video> videoList = new LinkedList<Video>();
 
-        void addVideo(Video v)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="v"></param>
+        void AddVideo(Video v)
         {
             if(!videoList.Contains(v)) videoList.AddLast(v);
         }
-        Video removeFirstVideo()
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public Video RemoveFirstVideo()
         {
             Video ret = videoList.First();
             videoList.RemoveFirst();
             return ret;
         }
-        void removeUnwantedVideo(Video v)
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="v"></param>
+        public void RemoveUnwantedVideo(Video v)
         {
             LinkedListNode<Video> l = videoList.Last;
             while(l.Previous.Value != v) l = l.Previous;
             
         }
-        void upvote(Video v)
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="v"></param>
+        public void Upvote(Video v)
         {
             LinkedListNode<Video> vid = videoList.Find(v);
-            vid.Value.upvote();
-            checkOrder(vid);
+            vid.Value.Upvote();
+            CheckOrder(vid);
         }
-        void downvote(Video v)
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="v"></param>
+        public void Downvote(Video v)
         {
             LinkedListNode<Video> vid = videoList.Find(v);
-            vid.Value.downvote();
-            checkOrder(vid);
+            vid.Value.Downvote();
+            CheckOrder(vid);
         }
-        void checkOrder(LinkedListNode<Video> node)
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="node"></param>
+        public void CheckOrder(LinkedListNode<Video> node)
         {
             LinkedListNode<Video> temp = node;
-            if (node.Value.getVotes() < node.Next.Value.getVotes())
+            if (node.Value.GetVotes() < node.Next.Value.GetVotes())
             {
-                while(temp.Value.getVotes() < temp.Next.Value.getVotes())
+                while(temp.Value.GetVotes() < temp.Next.Value.GetVotes())
                 {
                     temp = node.Next;
                 }
                 videoList.Remove(node);
                 videoList.AddBefore(temp, node);
             }
-            else if(node.Value.getVotes() > node.Previous.Value.getVotes())
+            else if(node.Value.GetVotes() > node.Previous.Value.GetVotes())
             {
-                while(temp.Value.getVotes() > temp.Previous.Value.getVotes())
+                while(temp.Value.GetVotes() > temp.Previous.Value.GetVotes())
                 {
                     temp = node.Previous;
                 }
