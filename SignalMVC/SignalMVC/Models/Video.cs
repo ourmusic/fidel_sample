@@ -8,11 +8,11 @@ namespace SignalMVC.Models
     public class Video
     {
         //may need to change these variables to be public
-        private string title;        //title of the video 
-        private string url;          //url of the video
-        private string artist;       //artist of the video
-        private string album;        //album of the video
-        private int votes;           //votes to determine play order
+        public string title;        //title of the video 
+        public string url;          //url of the video
+        //private string artist;       //artist of the video
+       // private string album;        //album of the video
+        public int votes;           //votes to determine play order
 
         /// <summary>
         /// constructor for video class, initially all unknown
@@ -21,52 +21,57 @@ namespace SignalMVC.Models
         {
             this.title = "";
             this.url = "";
-            this.artist = "";
-            this.album = "";
+            //this.artist = "";
+            //this.album = "";
             this.votes = 0;
         }
 
-        /// <summary>
-        /// Title Helper Functions
-        /// </summary>
-        /// <returns></returns>
-        public string GetTitle()
+        public Video(string t, string u, int v)
+        {
+            this.title = t;
+            this.url = u;
+            //this.artist = "";
+            //this.album = "";
+            this.votes = v;
+        }
+
+        public Video(string t, string u)
+        {
+            this.title = t;
+            this.url = u;
+            this.votes = 0;
+        }
+
+       
+        public string getTitle()
         {
             return this.title;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="title"></param>
-        public void SetTitle(string title)
+       
+        public void setTitle(string title)
         {
             this.title = title;
         }
 
-        /// <summary>
-        /// Artist Helper Functions
-        /// </summary>
-        /// <returns></returns>
+        /*
         public string GetArtist()
         {
             return this.artist;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="artist"></param>
+       
         public void SetArtist(string artist)
         {
             this.artist = artist;
         }
-
+        */
         /// <summary>
         /// Album Helper Functions
         /// </summary>
         /// <returns></returns>
-        public string GetAlbum()
+        /*
+        public string getAlbum()
         {
             return this.album;
         }
@@ -75,16 +80,16 @@ namespace SignalMVC.Models
         /// 
         /// </summary>
         /// <param name="album"></param>
-        public void SetAlbum(string album)
+        public void setAlbum(string album)
         {
             this.album = album;
         }
-
+        */
         /// <summary>
         /// URL Helper Functions
         /// </summary>
         /// <returns></returns>
-        public string GetUrl()
+        public string getUrl()
         {
             return this.url;
         }
@@ -93,7 +98,7 @@ namespace SignalMVC.Models
         /// 
         /// </summary>
         /// <param name="url"></param>
-        public void SetUrl(string url)
+        public void setUrl(string url)
         {
             this.url = url;
         }
@@ -102,7 +107,7 @@ namespace SignalMVC.Models
         /// Votes Helper Functions
         /// </summary>
         /// <returns></returns>
-        public int GetVotes()
+        public int getVotes()
         {
             return this.votes;
         }
@@ -110,7 +115,7 @@ namespace SignalMVC.Models
         /// <summary>
         /// 
         /// </summary>
-        public void Upvote()
+        public void upvote()
         {
             this.votes++;
         }
@@ -118,7 +123,7 @@ namespace SignalMVC.Models
         /// <summary>
         /// 
         /// </summary>
-        public void Downvote()
+        public void downvote()
         {
             this.votes--;
         }

@@ -14,7 +14,7 @@ namespace SignalMVC.Hubs
     {
         private static Timer _timer = new Timer();
 
-        private VideoQueue videoQueue = new VideoQueue();
+        private VideoQueue videoQueue = new VideoQueue(true);
 
         /// <summary>
         /// Starts the countdown timer for the video to finish.
@@ -38,6 +38,7 @@ namespace SignalMVC.Hubs
             _timer.Stop();
             String video = GetNextVideo(); 
             Clients.All.change(video);
+
         }
 
         /// <summary>
@@ -49,8 +50,8 @@ namespace SignalMVC.Hubs
         /// <returns>The next video ID in the queue</returns>
         public String GetNextVideo()
         {
-            Video toPlay = videoQueue.RemoveFirstVideo();
-            return toPlay.GetUrl();
+            Video toPlay = videoQueue.removeFirstVideo();
+            return toPlay.getUrl();
         }
 
     }
