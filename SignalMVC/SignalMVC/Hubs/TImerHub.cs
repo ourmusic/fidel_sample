@@ -58,6 +58,19 @@ namespace SignalMVC.Hubs
             return toPlay.getUrl();
         }
 
+        /**
+         * Adds a video to the queue based on user input video title and url
+         * Called by client javascript
+         * */
+        public void addToQueue(string vidTitle, string vidUrl)
+        {
+            Video newVid = new Video(vidTitle, vidUrl);
+            videoQueue.addVideo(newVid);
+
+            string jsonOfQueue = videoQueue.jsonQueue();
+            Clients.All.refreshList(jsonOfQueue);
+        }
+
     }
 
 }

@@ -2,21 +2,19 @@
     ViewBag.Title = "Home Page";
 }
 
-<br/>
+<br />
 
 <div id="player"></div>
 <div>
     <input type="text" id="vidTitle" />
     <input type="text" id="vidUrl" />
-    <input type="button" id="addVideo" value="addVideoToQueue" />
-    <p id="queueString"></p>
+    <input type="button" id="addVideo" value="Add To Queue" />
+    <ul id="queueString"></ul>
 </div>
 <script src="/Scripts/jquery-1.10.2.min.js"></script>
 <script src="/Scripts/jquery.signalR-2.2.0.js"></script>
 <script src="/signalr/hubs"></script>
 <script src="/Scripts/play.js"></script>
-
-<!---
 <script>
     $(function () {
         // Reference the auto-generated proxy for the hub.
@@ -24,18 +22,23 @@
         // Create a function that the hub can call back to display messages.
         tHub.client.refreshList = function (jsonString) {
             // Add the message to the page.
-            $('#queueString') = "<p>" + jsonString + "</p>";
+            var parsedList = JSON.parse(jsonString);
+            var qList = document.getElementById("queueString");
+            qList.innerHTML = "";
+            for (i = 0; i < parsedList.length; i++) {
+                qList.innerHTML += "<li> Title: " + parsedList[i].title + "<br>URL: " + parsedList[i].url + "<br>Votes: " + parsedList[i].votes + "</li>"
+            }
+
         };
         // Start the connection.
         $.connection.hub.start().done(function () {
             $('#addVideo').click(function () {
                 // Call the Send method on the hub.
-                chat.server.addToQueue($('#vidTitle').val(), $('#vidUrl').val());
+                tHub.server.addToQueue($('#vidTitle').val(), $('#vidUrl').val());
                 // Clear text box and reset focus for next comment.
-                $('#message').val('').focus();
+                $('#vidUrl').val('');
+                $('#vidTitle').val('').focus();
             });
         });
     });
 </script>
-
---->
